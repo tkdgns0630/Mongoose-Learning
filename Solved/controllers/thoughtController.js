@@ -15,11 +15,11 @@ module.exports = {
   async getSingleThought(req, res) {
     try {
       const thought = await Thought.findOne({
-        _id: req.params.applicationId,
+        _id: req.params.thoughtId,
       });
 
       if (!thought) {
-        return res.status(404).json({ message: "No application with that ID" });
+        return res.status(404).json({ message: "No thought with that ID" });
       }
 
       res.json(thought);
@@ -45,7 +45,7 @@ module.exports = {
         });
       }
 
-      res.json("Created the application 🎉");
+      res.json("Created the thought 🎉");
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -124,7 +124,7 @@ module.exports = {
   // It then updates the reaction array associated with the thought in question by removing it's reactionId from the tags array.
   async removeReaction(req, res) {
     try {
-      const thought = await thought.findOneAndUpdate(
+      const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
         { $pull: { reactions: { reactionId: req.params.reactionId } } },
         { runValidators: true, new: true }

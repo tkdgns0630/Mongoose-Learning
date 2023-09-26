@@ -15,7 +15,8 @@ module.exports = {
     try {
       const user = await User.findOne({ _id: req.params.userId })
         .populate({
-          path: "thought",
+          path: "thoughts",
+          model: "thought",
         })
         .populate({
           path: "friends",
@@ -101,8 +102,8 @@ module.exports = {
     try {
       const user = await User.findOneAndUpdate(
         { _id: req.params.userId },
-        { $pull: { friends: { _Id: req.params.friendId } } },
-        { runValidators: true, new: true }
+        { $pull: { friends: { _id: req.params.friendId } } },
+        { new: true }
       );
       // Finish this one first
       if (!user) {

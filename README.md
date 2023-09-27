@@ -13,7 +13,7 @@ Instructions are as follows.
 
 ## Installation
 
-npm install
+npm install,
 node index.js
 
 ## Usage

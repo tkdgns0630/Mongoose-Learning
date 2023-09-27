@@ -33,7 +33,7 @@ const thoughtSchema = new Schema(
 );
 
 function getTime() {
-  return moment().format("MMMM Do YYYY, h:mm:ss a");
+  return moment().format("DD-MM-YYYY");
 }
 
 // Create a virtual property `getTags` that gets the amount of tags associated with an application

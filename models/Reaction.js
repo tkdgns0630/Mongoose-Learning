@@ -26,7 +26,7 @@ const reactionSchema = new Schema(
 );
 
 function getTime() {
-  return moment().format("MMMM Do YYYY, h:mm:ss a");
+  return moment().format("DD-MM-YYYY");
 }
 
 module.exports = reactionSchema;

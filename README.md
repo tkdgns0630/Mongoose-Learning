@@ -1,22 +1,99 @@
-# 📐 Add Comments to Mongoose CRUD Operations
+# Social media backend Mongoose.
+## Description
 
-Work with a partner to add comments that describe the functionality of the CRUD operations found in [Unsolved/controllers/appController.js](./Unsolved/controllers/appController.js).
+This application builds a back-end for a social media platform using node, express, and mongoose. Crud application for restful API.
+<br />
+Instructions are as follows.
+<br />
+## Table of Contents 
+- [Installation](#installation)
+- [Usage](#usage)
+- [Routes](#routes)
+- [Technologies](#technologies)
+- [Credits](#credits)
 
-## 📝 Notes
+## Installation
 
-* Be sure to run `npm install`, `npm run seed`, and `npm start`.
+npm install
+<br />
+node index.js
 
-* Refer to the documentation: [Mongoose docs on constructing models](https://mongoosejs.com/docs/models.html)
+## Usage
 
----
+GIVEN a social network API<br />
+WHEN I enter the command to invoke the application<br />
+THEN my server is started and the Mongoose models are synced to the MongoDB database<br />
+WHEN I open API GET routes in Insomnia for users and thoughts<br />
+THEN the data for each of these routes is displayed in a formatted JSON<br />
+WHEN I test API POST, PUT, and DELETE routes in Insomnia<br />
+THEN I am able to successfully create, update, and delete users and thoughts in my database<br />
+WHEN I test API POST and DELETE routes in Insomnia<br />
+THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list<br />
 
-## 🏆 Bonus
+## Routes
 
-If you have completed this activity, work through the following challenge with your partner to further your knowledge:
+Get All Thought (GET)<br />
+localhost:3001/api/thoughts<br />
+Get Single Thought(GET)<br />
+localhost:3001/api/thoughts/65126b8ac98cad46c7bf5d2a<br />
+CreateThought (Post)<br />
 
-* What is the difference between `findOneAndDelete()` and `findOne()` + `remove()`? Or similarly, what is the difference between `findOneAndUpdate()` and `findOne()` + `save()`?
+localhost:3001/api/thoughts<br />
 
-Use [Google](https://www.google.com) or another search engine to research this.
+{<br />
+  "thoughtText": "Here's a cool thoughtasd...",<br />
+  "username": "lernantinasdo",<br />
+  "userId": "651111a2daf6ec342935d131"<br />
+}<br />
 
----
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+localhost:3001/api/thoughts<br />
+Update Thought(PUT)<br />
+localhost:3001/api/thoughts/651277399f8c7a6749689ede<br />
+{<br />
+  "thoughtText": "Here's a cool thought...",<br />
+  "username": "lernantino",<br />
+  "userId": "5edff358a0fcb779aa7b118b"<br />
+}<br />
+Delete Thought(DELETE)<br />
+localhost:3001/api/thoughts/651288b10bbbb0da25d31587<br />
+Add Reaction<br />
+localhost:3001/api/thoughts/651288b10bbbb0da25d31587/reaction<br />
+{<br />
+  "reactionBody": "leasdrnantino",<br />
+  "username": "lernanasdasdtino@gmail.com"<br />
+}<br />
+Remove Reaction<br />
+localhost:3001/api/thoughts/651288b10bbbb0da25d31587/reactions/ 651294458a714bb040cb8d18<br />
+
+
+Get Users (get)<br />
+localhost:3001/api/users<br />
+Get SingleUser (get)<br />
+localhost:3001/api/users/ 651111a2daf6ec342935d131<br />
+Create User (Post)<br />
+localhost:3001/api/users<br />
+{<br />
+  "username": "lernantiasdasdno",<br />
+  "email": "lernanasdatino@gmail.com"<br />
+}<br />
+DeleteUser (delete)<br />
+localhost:3001/api/users/651111a2daf6ec342935d131<br />
+AddFriend (post)<br />
+localhost:3001/api/users/651111a2daf6ec342935d131/friends/651275ca9f8c7a6749689edc<br />
+Remove Friend (delete)<br />
+localhost:3001/api/users/651111a2daf6ec342935d131 /friends/651275ca9f8c7a6749689edc<br />
+
+## Technologies
+
+- node.js
+- Express
+- Mongoose
+- nodemon
+- moment
+
+
+## Credits
+
+Sanghun Yun,
+Bootcamp learning materials,
+Moment Doc.
